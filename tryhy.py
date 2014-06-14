@@ -34,7 +34,7 @@ import GitHy_BootStrap
 #provide https://github.com/mitsuhiko/flask
 GitHy_BootStrap.PkgInstall(PkgName="flask", GitUrl="https://github.com/mitsuhiko/flask.git", TagName="0.10.1", cwfd=cwfd)
 #provide https://github.com/hylang/tryhy
-GitHy_BootStrap.GitTar(PkgName="tryhy", GitUrl="https://github.com/hylang/tryhy.git", cwfd=cwfd)
+GitHy_BootStrap.GitTar(PkgName="tryhy", GitUrl="https://github.com/GlassGhost/tryhy.git", cwfd=cwfd)
 
 BootStrapPython = cwfd + '/BootStrap/bin/python'
 tryhyDir= cwfd + '/Pkg/tryhy'
