@@ -15,17 +15,9 @@
 #	express or implied. See the License for  the  specific  language
 #	governing permissions and limitations under the License.
 #__________________________________________________________________DOCUMENTATION
-'''stuff.py
-"GitHy_BootStrap.PkgInstall" the following packages:
-	pandas
-	sympy
-	scipy
-	matplotlib
-	cython
-	bottle
-	flask
+'''tryhy.py
+Local host an equivalent of https://github.com/hylang/tryhy
 
-Revision Tags Last updated 2014-6-13
 '''
 #________________________________________________________________Library Imports
 import subprocess, threading, re, os, sys, inspect, shutil, argparse, random, math
@@ -39,19 +31,16 @@ import GitHy_BootStrap
 #______________________________________________________________________Functions
 
 #____________________________________________________________________Main Script
-GitHy_BootStrap.PkgInstall(PkgName="None", GitUrl=None, TagName=None, cwfd=cwfd)
-#https://github.com/pydata/pandas
-GitHy_BootStrap.PkgInstall(PkgName="pandas", GitUrl="https://github.com/pydata/pandas.git", TagName="v0.14.0", cwfd=cwfd)
-#https://github.com/sympy/sympy
-GitHy_BootStrap.PkgInstall(PkgName="sympy", GitUrl="https://github.com/sympy/sympy.git", TagName="sympy-0.7.5", cwfd=cwfd)
-#https://github.com/scipy/scipy
-GitHy_BootStrap.PkgInstall(PkgName="scipy", GitUrl="https://github.com/scipy/scipy.git", TagName="v0.14.0", cwfd=cwfd)
-#https://github.com/matplotlib/matplotlib
-GitHy_BootStrap.PkgInstall(PkgName="matplotlib", GitUrl="https://github.com/matplotlib/matplotlib.git", TagName="1.3.1", cwfd=cwfd)
-#https://github.com/cython/cython
-GitHy_BootStrap.PkgInstall(PkgName="cython", GitUrl="https://github.com/cython/cython.git", TagName="0.20.1", cwfd=cwfd)
-#https://github.com/defnull/bottle
-GitHy_BootStrap.PkgInstall(PkgName="bottle", GitUrl="https://github.com/defnull/bottle.git", TagName="0.12.7", cwfd=cwfd)
-#https://github.com/mitsuhiko/flask
+#provide https://github.com/mitsuhiko/flask
 GitHy_BootStrap.PkgInstall(PkgName="flask", GitUrl="https://github.com/mitsuhiko/flask.git", TagName="0.10.1", cwfd=cwfd)
+#provide https://github.com/hylang/tryhy
+GitHy_BootStrap.GitTar(PkgName="tryhy", GitUrl="https://github.com/hylang/tryhy.git", cwfd=cwfd)
+
+BootStrapPython = cwfd + '/BootStrap/bin/python'
+tryhyDir= cwfd + '/Pkg/tryhy'
+
+SPObject_tryhy = subprocess.Popen(
+	[BootStrapPython, tryhyDir + '/main.py'],
+	stdin=None, stdout=None, stderr=None, cwd=tryhyDir, env=None)
+SPObject_tryhy.wait()
 

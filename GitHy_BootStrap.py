@@ -65,16 +65,22 @@ def GitTar(PkgName=None, GitUrl=None, TagName=None, cwfd=None):
 		stdin=None, stdout=None, stderr=None, cwd=os.path.dirname(PkgDir), env=None)
 	SPObject_tar.wait()
 #___git checkout TagName
-	SPObject_git_checkout = subprocess.Popen(
-		['git', 'checkout', TagName],
-		stdin=None, stdout=None, stderr=None, cwd=PkgDir, env=None)
-	SPObject_git_checkout.wait()
+	if not (TagName == None):
+		SPObject_git_checkout = subprocess.Popen(
+			['git', 'checkout', TagName],
+			stdin=None, stdout=None, stderr=None, cwd=PkgDir, env=None)
+		SPObject_git_checkout.wait()
+	else:
+		SPObject_git_checkout = subprocess.Popen(
+			['git', 'checkout', 'origin/master'],
+			stdin=None, stdout=None, stderr=None, cwd=PkgDir, env=None)
+		SPObject_git_checkout.wait()
 #___delete .git directory
 	shutil.rmtree(PkgDir + '/.git')
 
-def PkgInstall(PkgName=None, cwfd=None, GitUrl=None, TagName=None):
+def PkgInstall(PkgName=None, GitUrl=None, TagName=None, cwfd=None):
 	print cwfd
-	GitTar(PkgName=PkgName, cwfd=cwfd, GitUrl=GitUrl, TagName=TagName)
+	GitTar(PkgName=PkgName, GitUrl=GitUrl, TagName=TagName, cwfd=cwfd)
 	PkgDir = cwfd + '/Pkg/' + PkgName
 	SPObject_PkgInstall = subprocess.Popen(
 		[cwfd + '/BootStrap/bin/python', PkgDir + '/setup.py', 'install'],
