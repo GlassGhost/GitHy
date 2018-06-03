@@ -32,7 +32,7 @@ import GitHy_BootStrap
 
 #____________________________________________________________________Main Script
 #provide https://github.com/mitsuhiko/flask
-GitHy_BootStrap.PkgInstall(PkgName="flask", GitUrl="https://github.com/mitsuhiko/flask.git", TagName="0.10.1", cwfd=cwfd)
+GitHy_BootStrap.PkgInstall(PkgName="flask", GitUrl="https://github.com/mitsuhiko/flask.git", TagName="1.0", cwfd=cwfd)
 #provide https://github.com/hylang/tryhy
 GitHy_BootStrap.GitTar(PkgName="tryhy", GitUrl="https://github.com/GlassGhost/tryhy.git", cwfd=cwfd)
 

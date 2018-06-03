@@ -19,7 +19,6 @@
 Provides a Virtualenv BootStrap with the latest stable version of the following
 packages:
 	https://github.com/pypa/virtualenv
-	https://github.com/hylang/hy
 '''
 #________________________________________________________________Library Imports
 import subprocess, threading, re, os, sys, inspect, shutil, argparse, random, math
@@ -89,15 +88,13 @@ def PkgInstall(PkgName=None, GitUrl=None, TagName=None, cwfd=None):
 
 #____________________________________________________________________Main Script
 if __name__ == "__main__":
-	GitTar(GitUrl="https://github.com/pypa/virtualenv.git", PkgName="virtualenv", TagName="1.11.6", cwfd=cwfd)
+	GitTar(GitUrl="https://github.com/pypa/virtualenv.git", PkgName="virtualenv", TagName="15.1.0", cwfd=cwfd)
 	SPObject_BootStrap = subprocess.Popen(
 		['python', cwfd + '/Pkg/virtualenv/virtualenv.py', 'BootStrap'],
 		stdin=None, stdout=None, stderr=None, cwd=cwfd, env=None)
 	SPObject_BootStrap.wait()
 	#https://github.com/pypa/virtualenv
-	PkgInstall(PkgName="virtualenv", GitUrl="https://github.com/pypa/virtualenv.git", TagName="1.11.6", cwfd=cwfd)
-	#https://github.com/hylang/hy
-	PkgInstall(PkgName="hy", GitUrl="https://github.com/hylang/hy.git", TagName="0.10.0", cwfd=cwfd)
+	PkgInstall(PkgName="virtualenv", GitUrl="https://github.com/pypa/virtualenv.git", TagName="15.1.0", cwfd=cwfd)
 	pass#print "This program wasn't called by another python"
 else:
 	pass#print "This program was called by another python"
